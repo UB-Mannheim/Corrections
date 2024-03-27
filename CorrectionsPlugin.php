@@ -71,7 +71,7 @@ class CorrectionsPlugin extends Omeka_Plugin_AbstractPlugin
             $text = get_option('corrections_text');
         }
         $url = url('corrections/index/add/item_id/' . $item->id);
-        return "<a href='$url'>$text</a>";
+        return "<a id='correction' href='$url'> $text </a>";
     }
     
     public function hookConfigForm($args)
