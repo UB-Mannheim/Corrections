@@ -18,20 +18,20 @@ class Corrections_IndexController extends Omeka_Controller_AbstractActionControl
         $this->view->item = $item;
         $elements = $this->getElements();
         $this->view->elements = $elements;
-        $user = current_user();
-        if (! $user) {
-            $captcha = Omeka_Captcha::getCaptcha();
-            $this->captcha = $captcha;
-            $this->view->captchaScript = $captcha->render(new Zend_View);
-        }
+        // $user = current_user();
+        // if (! $user) {
+        //     $captcha = Omeka_Captcha::getCaptcha();
+        //     $this->captcha = $captcha;
+        //     $this->view->captchaScript = $captcha->render(new Zend_View);
+        // }
         if ($this->getRequest()->isPost()) {
-            if ($user || $this->captcha->isValid(null, $_POST)) {
+            // if ($user || $this->captcha->isValid(null, $_POST)) {
                 $this->_helper->flashMessenger(__("Thank you for the correction. It is under review."), 'success');
                 parent::addAction();
-            } else {
-                $this->_helper->flashMessenger(__('Your CAPTCHA submission was invalid, please try again.'), 'error');
-                $this->view->corrections_correction = new CorrectionsCorrection();
-            }
+            // } else {
+            //     $this->_helper->flashMessenger(__('Your CAPTCHA submission was invalid, please try again.'), 'error');
+            //     $this->view->corrections_correction = new CorrectionsCorrection();
+            // }
         } else {
             parent::addAction();
         }

@@ -5,6 +5,8 @@ $user = current_user();
 ?>
 <?php echo flash(); ?>
 
+<!-- Theme Nikephoros is overwriting this! -->
+
 <p>
 <?php echo __('You can suggest corrections to the following fields for item '); ?>
 <?php echo link_to($item, 'show', metadata($item, array('Dublin Core', 'Title'), array('no_filter' => true)) . '.' , array('target' => '_blank')); ?>
