@@ -42,9 +42,9 @@ if(is_array($correctableElements)) {
 ?>
 <?php 
 if (get_option('show_element_set_headings') ) {
-    foreach($data as $elSet=>$options) {
+    foreach($data as $elID=>$options) {
         echo "<div class='field checkbox-container'>";
-        echo "<h2>$elSet</h2>";
+        echo "<h2>$elID</h2>";
         echo $view->formMultiCheckbox('element_sets', $values, null, $options, '');
         echo "</div>";
     }
