@@ -43,13 +43,32 @@ if(is_array($correctableElements)) {
 <?php 
 if (get_option('show_element_set_headings') ) {
     foreach($data as $elSet=>$options) {
-        echo "<div class='field'>";
+        echo "<div class='field checkbox-container'>";
         echo "<h2>$elSet</h2>";
         echo $view->formMultiCheckbox('element_sets', $values, null, $options, '');
         echo "</div>";
     }
 } else {
-    echo "<div class='field no-headings'>";
+    echo "<div class='field no-headings checkbox-container'>";
     echo $view->formMultiCheckbox('element_sets', $values, null, $data, '');
     echo "</div>";
 }
+?>
+
+<style>
+    .checkbox-container {
+        display: flex;
+        flex-wrap: wrap;
+        max-height: 400px; /* Adjust this height as needed */
+        overflow-y: auto;
+        padding: 5px;
+        border: 1px solid #ccc;
+    }
+
+    .checkbox-container label {
+        width: 50%; /* Two columns */
+        margin: 5px 0;
+        display: flex;
+        align-items: center;
+    }
+</style>
